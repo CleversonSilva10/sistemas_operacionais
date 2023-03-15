@@ -7,7 +7,7 @@ int value = 5;
 
 int main()
 {
-	pid_t pid;
+  pid_t pid;
   int fd[2];
   
   if(pipe(fd) < 0){
