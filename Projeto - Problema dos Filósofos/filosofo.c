@@ -6,10 +6,9 @@
 #include <semaphore.h>
 #include <pthread.h>
 #include <stdlib.h>
-#include <Windows.h>
 #include <unistd.h>
 
-#define quant_filosofos 5 // Define constante de quantidade de filósofos
+#define quant_filosofos 5 // Define constante de quantidade de fil�sofos
 #define filosofo_aguardando 0 
 //identificador de filosofo_aguardando
 #define filosofo_com_fome 1 
@@ -34,10 +33,10 @@ void pegaGarfo(int num_filosofo)
 {
   sem_wait(&saleiro); // Espera o semáforo que controla as mudanças de estado_filosofo ficar livre
   estado_filosofo[num_filosofo]= filosofo_com_fome; // Atualiza o estado_filosofo do fil�sofo para "Com fome"
-  printf("Filosofo de numero %d esta com fome \n",num_filosofo+1);// Exibe mensagem na tela de que o filósofo está com fome
-  teste(num_filosofo); // Tenta fazer com que o filósofo pegue os garfos. 
+  printf("Filosofo de numero %d esta com fome \n",num_filosofo+1);// Exibe mensagem na tela de que o fil�sofo está com fome
+  teste(num_filosofo); // Tenta fazer com que o fil�sofo pegue os garfos. 
   sem_post(&saleiro); // Destrava o semáforo saleiro
-  sem_wait(&sem_filosofo[num_filosofo]); // Espera até o semáforo referente ao filósofo estar liberado
+  sem_wait(&sem_filosofo[num_filosofo]); // Espera até o semáforo referente ao fil�sofo estar liberado
   sleep(1);
 }
 
