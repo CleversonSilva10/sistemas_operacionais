@@ -1,5 +1,7 @@
 // Gustavo Teixeira dos Santos  TIA: 32197020
 // Cleverson Pereira da Silva TIA: 32198531
+// Pedro Augusto Lima  TIA: 32136374
+ 
 
 #include <stdio.h>
 #include <stdlib.h>
