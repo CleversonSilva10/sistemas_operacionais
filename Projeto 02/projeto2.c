@@ -39,7 +39,7 @@ int main()
  exit(1);
  }
  // Todas as contas começam com saldo 100
-  from.saldo = 100;
+ from.saldo = 100;
  to.saldo = 100;
  printf( "Transferindo 10 para a conta c2\n" );
  valor = 10;
