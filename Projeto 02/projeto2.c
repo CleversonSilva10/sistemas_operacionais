@@ -1,3 +1,12 @@
+
+/*
+ * 
+ * Nome: Cleverson Pereira da Silva TIA: 32198531
+ * Nome: Gustavo Teixeira dos Santos TIA: 32197020
+ * Nome: Pedro Augusto Ferreira Lima TIA: 32136374
+ * 
+ * */
+
 #define _GNU_SOURCE
 #include <stdlib.h>
 #include <malloc.h>
@@ -18,18 +27,7 @@ int conta_to = 100;
 int conta_from = 1000;
 pthread_mutex_t mutex;
 
-// struct c {
-//  int saldo;
-// };
-
-// typedef struct c conta;
-// conta from, to;
-
-// int valor;
-
-// The child thread will execute this function
-
-void *transferencia(void *num){
+void *transferencia(void *num){ // Função feita pelo Gustavo
     srand(time(NULL));
     int valor = 1;
     int *opcao = (int*) num;
@@ -58,10 +56,9 @@ void *transferencia(void *num){
         pthread_mutex_unlock(&mutex);
     }
 
-    if (*opcao == 1){
+    if (*opcao == 1){ // Feito pelo Cleverson
         
         pthread_mutex_lock(&mutex);
-        //printf("\nTHREAD INICADA %d", *numero);
         // Região Critica
         
         // 4. A conta to pode trocar de ordem com a conta from, ou seja, a conta que enviava pode receber e a conta que recebia pode enviar;
@@ -87,9 +84,8 @@ void *transferencia(void *num){
 }
 
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]){ // Função realizada pelo Pedro
     void* stack;
-    //pid_t pid;
     //5. Poderão ser realizadas até 100 transações simultâneas de transferência
     pthread_t threads[NUM_TRANSACOES];
     int i;
@@ -102,6 +98,8 @@ int main(int argc, char *argv[]){
         exit(1);
     }
 
+    printf("\nCONTA FROM INICIAL: %d\nCONTA TO INICIAL: %d", conta_from, conta_to);
+    
     i = 0;
     while(i < NUM_TRANSACOES){
         int opcao_aleatoria = rand()%2; // MOD 
@@ -123,4 +121,5 @@ int main(int argc, char *argv[]){
     printf("---------------------------------------------\n\n");
     return 0;
 }
+
 
